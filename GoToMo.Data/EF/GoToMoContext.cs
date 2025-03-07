@@ -1,4 +1,5 @@
-﻿using GoToMo.Domain.Movies;
+﻿using GoToMo.Data.EF.Builders;
+using GoToMo.Domain.Movies;
 using GoToMo.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,12 +10,16 @@ namespace GoToMo.Data.EF
 		public DbSet<User> Users { get; set; }
 		public DbSet<MovieCollection> MovieCollections { get; set; }
 		public DbSet<Production> Productions { get; set; }
+		public DbSet<Staff> Staff { get; set; }
 		public DbSet<StreamingService> StreamingServices { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			
+			modelBuilder.ApplyConfiguration(new UserBuilder());
+			modelBuilder.ApplyConfiguration(new ProductionBuilder());
+			modelBuilder.ApplyConfiguration(new StreamingServiceBuilder());
+			modelBuilder.ApplyConfiguration(new MovieCollectionBuilder());
 		}
 
 		public GoToMoContext(DbContextOptions<GoToMoContext> options): base(options)

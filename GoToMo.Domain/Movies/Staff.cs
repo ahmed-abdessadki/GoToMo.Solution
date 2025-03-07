@@ -7,6 +7,7 @@ namespace GoToMo.Domain.Movies
 		public string Name { get; set; }
 		public StaffType StaffType { get; set; }
 
+		
 		public Staff(string name, StaffType staffType)
 		{
 			Name = name;
