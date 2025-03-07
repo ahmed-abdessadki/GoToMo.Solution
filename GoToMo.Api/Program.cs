@@ -1,6 +1,6 @@
 using AutoMapper;
-using GoToMo.Api.Application.CommandHandlers;
-using GoToMo.Api.Application.Commands;
+using GoToMo.Api.Application.CommandHandlers.Movies;
+using GoToMo.Api.Application.Commands.Movies;
 using GoToMo.Api.CQRS;
 using GoToMo.Api.Mappers;
 using GoToMo.Data.EF;
@@ -15,6 +15,10 @@ var env = builder.Environment;
 
 builder.Services.AddScoped<GoToMoUnitOfWork>();
 builder.Services.AddScoped<ICommandHandlerAsync<AddStaffCommand, Staff>, AddStaffCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<AddStreamingServiceCommand, StreamingService>, AddStreamingCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<AddProductionCommand, Production>, AddProductionCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<AddProductionStaffCommand>, AddProductionStaffCommandHandler>();
+
 
 var mapperConfig = new MapperConfiguration(mc =>
 {

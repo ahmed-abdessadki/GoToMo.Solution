@@ -4,6 +4,7 @@ using GoToMo.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoToMo.Data.Migrations
 {
     [DbContext(typeof(GoToMoContext))]
-    partial class GoToMoContextModelSnapshot : ModelSnapshot
+    [Migration("20250307163230_Third_Migration")]
+    partial class Third_Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,23 +79,16 @@ namespace GoToMo.Data.Migrations
                     b.Property<int?>("MovieCollectionId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Plot")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PrimaryGenre")
+                    b.Property<int?>("PrimaryGenre")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductionType")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReleaseYear")
-                        .HasColumnType("int");
-
                     b.Property<int?>("Season")
                         .HasColumnType("int");
 
-                    b.Property<int>("SecondaryGenre")
+                    b.Property<int?>("SecondaryGenre")
                         .HasColumnType("int");
 
                     b.Property<int>("SequenceIndex")
@@ -102,8 +98,8 @@ namespace GoToMo.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

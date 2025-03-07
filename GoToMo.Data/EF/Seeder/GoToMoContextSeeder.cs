@@ -69,7 +69,7 @@ namespace GoToMo.Data.EF.Seeder
 			{
 				new Production("The Shawshank Redemption", ProductionType.Movie)
 				{
-					Year = 1994,
+					ReleaseYear = 1994,
 					Ratings = new List<Rating>
 					{
 						new Rating("IMDB", 9.3),
@@ -82,12 +82,12 @@ namespace GoToMo.Data.EF.Seeder
 					PrimaryGenre = Genre.Drama,
 					SecondaryGenre = Genre.Crime,
 					LengthInMinutes = 142,
-					Actors = new List<Staff>
+					Staff = new List<Staff>
 					{
 						new Staff("Tim Robbins", StaffType.Actor),
 						new Staff("Morgan Freeman", StaffType.Actor)
 					},
-					Director = new Staff("Frank Darabont", StaffType.Director),
+					//Director = new Staff("Frank Darabont", StaffType.Director),
 					StreamingServices = new List<StreamingService>
 					{
 						GetStreamingService("Netflix"),
@@ -96,7 +96,7 @@ namespace GoToMo.Data.EF.Seeder
 				},
 				new Production("The Godfather", ProductionType.Movie)
 				{
-					Year = 1972,
+					ReleaseYear = 1972,
 					Ratings = new List<Rating>
 					{
 						new Rating("IMDB", 9.2),
@@ -106,12 +106,12 @@ namespace GoToMo.Data.EF.Seeder
 					PrimaryGenre = Genre.Drama,
 					SecondaryGenre = Genre.Crime,
 					LengthInMinutes = 175,
-					Actors = new List<Staff>
+					Staff = new List<Staff>
 					{
 						new Staff("Marlon Brando", StaffType.Actor),
 						new Staff("Al Pacino", StaffType.Actor)
 					},
-					Director = new Staff("Francis Ford Coppola", StaffType.Director),
+					//Director = new Staff("Francis Ford Coppola", StaffType.Director),
 					StreamingServices = new List<StreamingService>
 					{
 						GetStreamingService("Netflix"),
@@ -120,7 +120,7 @@ namespace GoToMo.Data.EF.Seeder
 				},
 				new Production("The Dark Knight", ProductionType.Movie)
 				{
-					Year = 2008,
+					ReleaseYear = 2008,
 					Ratings = new List<Rating>
 					{
 						new Rating("IMDB", 9.0),
@@ -130,16 +130,16 @@ namespace GoToMo.Data.EF.Seeder
 					PrimaryGenre = Genre.Action,
 					SecondaryGenre = Genre.Drama,
 					LengthInMinutes = 152,
-					Actors = new List<Staff>
+					Staff = new List<Staff>
 					{
 						new Staff("Christian Bale", StaffType.Actor),
 						new Staff("Heath Ledger", StaffType.Actor)
 					},
-					Director = new Staff("Christopher Nolan", StaffType.Director),
+					//Director = new Staff("Christopher Nolan", StaffType.Director),
 				},
 				new Production("The Godfather: Part II", ProductionType.Movie)
 				{
-					Year = 1974,
+					ReleaseYear = 1974,
 					Ratings = new List<Rating>
 					{
 						new Rating("IMDB", 9.0),
@@ -149,16 +149,16 @@ namespace GoToMo.Data.EF.Seeder
 					PrimaryGenre = Genre.Action,
 					SecondaryGenre = Genre.Drama,
 					LengthInMinutes = 202,
-					Actors = new List<Staff>
+					Staff = new List<Staff>
 					{
 						new Staff("Al Pacino", StaffType.Actor),
 						new Staff("Robert De Niro", StaffType.Actor)
 					},
-					Director = new Staff("Francis Ford Coppola", StaffType.Director),
+					//Director = new Staff("Francis Ford Coppola", StaffType.Director),
 				},
 				new Production("The Lord of the Rings: The Return of the King", ProductionType.Movie)
 				{
-					Year = 2003,
+					ReleaseYear = 2003,
 					Ratings = new List<Rating>
 					{
 						new Rating("IMDB", 8.9),
@@ -168,16 +168,16 @@ namespace GoToMo.Data.EF.Seeder
 					PrimaryGenre = Genre.Action,
 					SecondaryGenre = Genre.Drama,
 					LengthInMinutes = 201,
-					Actors = new List<Staff>
+					Staff = new List<Staff>
 					{
 						new Staff("Elijah Wood", StaffType.Actor),
 						new Staff("Viggo Mortensen", StaffType.Actor)
 					},
-					Director = new Staff("Peter Jackson", StaffType.Director)
+					//Director = new Staff("Peter Jackson", StaffType.Director)
 				},
 				new Production("Pulp Fiction", ProductionType.Movie)
 				{
-					Year = 2003,
+					ReleaseYear = 2003,
 					Ratings = new List<Rating>
 					{
 						new Rating("IMDB", 8.9),
@@ -187,16 +187,16 @@ namespace GoToMo.Data.EF.Seeder
 					PrimaryGenre = Genre.Crime,
 					SecondaryGenre = Genre.Drama,
 					LengthInMinutes = 154,
-					Actors = new List<Staff>
+					Staff = new List<Staff>
 					{
 						new Staff("John Travolta", StaffType.Actor),
 						new Staff("Uma Thurman", StaffType.Actor)
 					},
-					Director = new Staff("Quentin Tarantino", StaffType.Director)
+					//Director = new Staff("Quentin Tarantino", StaffType.Director)
 				},
 				new Production("Schindler's List", ProductionType.Movie)
 				{
-					Year = 1993,
+					ReleaseYear = 1993,
 					Ratings = new List<Rating>
 					{
 						new Rating("IMDB", 8.9),
@@ -206,12 +206,12 @@ namespace GoToMo.Data.EF.Seeder
 					PrimaryGenre = Genre.Biography,
 					SecondaryGenre = Genre.Drama,
 					LengthInMinutes = 195,
-					Actors = new List<Staff>
+					Staff = new List<Staff>
 					{
 						new Staff("Liam Neeson", StaffType.Actor),
 						new Staff("Ben Kingsley", StaffType.Actor)
 					},
-					Director = new Staff("Steven Spielberg", StaffType.Director)
+					//Director = new Staff("Steven Spielberg", StaffType.Director)
 				}
 			};
 

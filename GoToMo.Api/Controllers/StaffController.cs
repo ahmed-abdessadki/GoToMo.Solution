@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GoToMo.Api.Application.Commands;
+using GoToMo.Api.Application.Commands.Movies;
 using GoToMo.Api.CQRS;
 using GoToMo.Data.EF;
 using GoToMo.Data.Repositories;
@@ -24,10 +24,16 @@ namespace GoToMo.Api.Controllers
 			var newStaff = await _addStaffCommandHandler.HandleAsync(command);
 			return CreatedAtAction("GetStaff", new { id = newStaff.Id }, _mapper.Map<Dto.Movies.Staff>(newStaff));
 		}
-
-
+		
 		[HttpGet]
 		public async Task<ActionResult<IEnumerable<Dto.Movies.Staff>>> GetStaff()
+		{
+			var staff = _goToMoUnitOfWork.Staff.GetAll();
+			return Ok(_mapper.Map<IEnumerable<Dto.Movies.Staff>>(staff));
+		}
+
+		[HttpGet("{id}")]
+		public async Task<ActionResult<IEnumerable<Dto.Movies.Staff>>> GetStaff(int id)
 		{
 			var staff = _goToMoUnitOfWork.Staff.GetAll();
 			return Ok(_mapper.Map<IEnumerable<Dto.Movies.Staff>>(staff));

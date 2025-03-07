@@ -1,9 +1,9 @@
-﻿using GoToMo.Api.Application.Commands;
+﻿using GoToMo.Api.Application.Commands.Movies;
 using GoToMo.Api.CQRS;
 using GoToMo.Data.EF;
 using GoToMo.Domain.Movies;
 
-namespace GoToMo.Api.Application.CommandHandlers
+namespace GoToMo.Api.Application.CommandHandlers.Movies
 {
 	public class AddStaffCommandHandler : ICommandHandlerAsync<AddStaffCommand, Staff>
 	{
@@ -13,7 +13,7 @@ namespace GoToMo.Api.Application.CommandHandlers
 		{
 			_goToMoUnitOfWork = goToMoUnitOfWork;
 		}
-		
+
 		public async Task<Staff> HandleAsync(AddStaffCommand command)
 		{
 			var newStaff = new Staff(command.Name, command.StaffType);

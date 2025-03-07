@@ -9,7 +9,7 @@ namespace GoToMo.Tests
 		[Test]
 		public void TestListProductions()
 		{
-			var productions = ctx.Productions.Include(x => x.Ratings).ThenInclude(x => x.User).Include(x => x.Actors).Include(x => x.Director);
+			var productions = ctx.Productions.Include(x => x.Ratings).ThenInclude(x => x.User).Include(x => x.Staff);
 			foreach (var production in productions)
 			{
 				Console.WriteLine(production);

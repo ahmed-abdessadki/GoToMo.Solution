@@ -3,6 +3,7 @@
 	[Flags]
 	public enum Genre
 	{
+		None = 0,
 		Action = 1 << 0,
 		Comedy = 1 << 1,
 		Drama = 1 << 2,

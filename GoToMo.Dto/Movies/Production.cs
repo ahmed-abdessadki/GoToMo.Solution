@@ -6,14 +6,16 @@ namespace GoToMo.Dto.Movies
 	{
 
 		public required string Title { get; set; }
-		public Staff? Director { get; set; }
+		public ProductionType ProductionType { get; set; }
+		public string? Plot { get; set; }
+		public string? Url { get; set; }
 		public List<Staff>? Actors { get; set; }
 		public List<StreamingService>? StreamingServices { get; set; }
-		public int? Year { get; init; }
+		public int? ReleaseYear { get; init; }
 		public int? LengthInMinutes { get; init; }
-		public Genre? PrimaryGenre { get; set; }
-		public Genre? SecondaryGenre { get; set; }
-		public ProductionType ProductionType { get; set; }
+		public Genre PrimaryGenre { get; set; }
+		public Genre SecondaryGenre { get; set; }
+		
 		public int SequenceIndex { get; set; } = 1;
 		public int? Season { get; set; }
 		public ProductionBundle? Bundle { get; set; }
