@@ -1,14 +1,14 @@
 ﻿using GoToMo.Api.Application.Commands.Movies;
 using GoToMo.Api.CQRS;
-using GoToMo.Data.EF;
+using GoToMo.Data.Repositories;
 using GoToMo.Domain.Movies;
 
 namespace GoToMo.Api.Application.CommandHandlers.Movies
 {
 	public class AddProductionCommandHandler : ICommandHandlerAsync<AddProductionCommand, Production>
 	{
-		GoToMoContext _goToMoUnitOfWork;
-		public AddProductionCommandHandler(GoToMoContext goToMoUnitOfWork)
+		GoToMoUnitOfWork _goToMoUnitOfWork;
+		public AddProductionCommandHandler(GoToMoUnitOfWork goToMoUnitOfWork)
 		{
 			_goToMoUnitOfWork = goToMoUnitOfWork;
 		}

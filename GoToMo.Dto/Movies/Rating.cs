@@ -7,8 +7,6 @@ namespace GoToMo.Dto.Movies
 	{		
 		public double RatingValue { get; set; }		
 		public required string Source { get; set; }
-		public User? User { get; set; }
-		public required Production Production { get; set; }
-	
+		public User? User { get; set; }			
 	}
 }

@@ -3,10 +3,8 @@ using GoToMo.Api.Application.CommandHandlers.Movies;
 using GoToMo.Api.Application.Commands.Movies;
 using GoToMo.Api.CQRS;
 using GoToMo.Api.Mappers;
-using GoToMo.Data.EF;
 using GoToMo.Data.Repositories;
 using GoToMo.Domain.Movies;
-using GoToMo.Dto.Movies.CRUD;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +16,13 @@ builder.Services.AddScoped<ICommandHandlerAsync<AddStaffCommand, Staff>, AddStaf
 builder.Services.AddScoped<ICommandHandlerAsync<AddStreamingServiceCommand, StreamingService>, AddStreamingCommandHandler>();
 builder.Services.AddScoped<ICommandHandlerAsync<AddProductionCommand, Production>, AddProductionCommandHandler>();
 builder.Services.AddScoped<ICommandHandlerAsync<AddProductionStaffCommand>, AddProductionStaffCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<RemoveProductionStreamingServiceCommand>, RemoveProductionStreamingServiceCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<AddProductionStreamingServiceCommand>, AddProductionStreamingServiceCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<AddRatingCommand, Rating>, AddRatingCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<UpdateRatingCommand>, UpdateRatingCommandHandler>();
+builder.Services.AddScoped<ICommandHandlerAsync<DeleteRatingCommand>, DeleteRatingCommandHandler>();
 
+ICommandHandlerAsync<UpdateRatingCommand> _updateRatingCommandHandler;
 
 var mapperConfig = new MapperConfiguration(mc =>
 {
@@ -38,7 +42,7 @@ if (env.IsDevelopment())
 configurationBuilder.AddEnvironmentVariables();
 var configuration = configurationBuilder.Build();
 
-builder.Services.AddDbContext<GoToMoContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("SqlDatabase")).EnableSensitiveDataLogging());
+builder.Services.AddDbContext<GoToMo.Data.EF.GoToMoContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("SqlDatabase")).EnableSensitiveDataLogging());
 
 builder.Services.AddSignalR(o =>
 {
@@ -69,10 +73,10 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-	GoToMoContext dbContext = null;
+	GoToMo.Data.EF.GoToMoContext dbContext = null;
 	try
 	{
-		dbContext = scope.ServiceProvider.GetRequiredService<GoToMoContext>();
+		dbContext = scope.ServiceProvider.GetRequiredService<GoToMo.Data.EF.GoToMoContext>();
 		if (dbContext.Database.GetPendingMigrations().Any())
 			dbContext.Database.Migrate();
 	}

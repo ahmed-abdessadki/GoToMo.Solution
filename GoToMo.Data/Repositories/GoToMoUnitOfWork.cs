@@ -80,6 +80,10 @@ namespace GoToMo.Data.Repositories
 			}
 		}
 
+		public async Task<int> SaveChangesAsync()
+		{
+			return await this._context.SaveChangesAsync();
+		}
 
 		public void Dispose()
 		{

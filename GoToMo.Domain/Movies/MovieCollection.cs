@@ -7,9 +7,9 @@ namespace GoToMo.Domain.Movies
 	{
 		public string Name { get; set; }
 		public string? Description { get; set; }
-		public List<Production>? Productions { get; set; }
+		public List<Production> Productions { get; set; } = new();
 		public User? Owner { get; set; }
-		public List<User>? Users { get; set; }
+		public List<User> Users { get; set; } = new();
 		
 
 		public MovieCollection(string name)

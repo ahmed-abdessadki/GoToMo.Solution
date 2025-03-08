@@ -9,8 +9,8 @@ namespace GoToMo.Domain.Movies
 		public ProductionType ProductionType { get; set; }
 		public string? Plot { get; set; }
 		public string? Url { get; set; }
-		public List<Staff>? Staff { get; set; }
-		public List<StreamingService>? StreamingServices { get; set; }
+		public List<Staff> Staff { get; set; } = new();
+		public List<StreamingService> StreamingServices { get; set; } = new();
 		public int? ReleaseYear { get; init; }
 		public int? LengthInMinutes { get; init; }
 		public Genre PrimaryGenre { get; set; }
@@ -19,7 +19,7 @@ namespace GoToMo.Domain.Movies
 		public int? Season { get; set; }
 		public ProductionBundle? Bundle { get; set; }
 
-		public List<Rating> Ratings { get; set; } = new List<Rating>();
+		public List<Rating> Ratings { get; set; } = new();
 
 		
 		public Production(string title, ProductionType productionType)

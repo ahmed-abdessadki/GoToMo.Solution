@@ -77,7 +77,6 @@ namespace GoToMo.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Plot")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PrimaryGenre")
@@ -222,16 +221,11 @@ namespace GoToMo.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductionId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductionId");
 
                     b.ToTable("StreamingService", (string)null);
                 });
@@ -283,6 +277,21 @@ namespace GoToMo.Data.Migrations
                     b.ToTable("ProductionStaff");
                 });
 
+            modelBuilder.Entity("ProductionStreamingService", b =>
+                {
+                    b.Property<int>("ProductionsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StreamingServicesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductionsId", "StreamingServicesId");
+
+                    b.HasIndex("StreamingServicesId");
+
+                    b.ToTable("ProductionStreamingService");
+                });
+
             modelBuilder.Entity("GoToMo.Domain.Movies.MovieCollection", b =>
                 {
                     b.HasOne("GoToMo.Domain.Users.User", "Owner")
@@ -318,13 +327,6 @@ namespace GoToMo.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("GoToMo.Domain.Movies.StreamingService", b =>
-                {
-                    b.HasOne("GoToMo.Domain.Movies.Production", null)
-                        .WithMany("StreamingServices")
-                        .HasForeignKey("ProductionId");
-                });
-
             modelBuilder.Entity("GoToMo.Domain.Users.User", b =>
                 {
                     b.HasOne("GoToMo.Domain.Movies.MovieCollection", null)
@@ -347,6 +349,21 @@ namespace GoToMo.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ProductionStreamingService", b =>
+                {
+                    b.HasOne("GoToMo.Domain.Movies.Production", null)
+                        .WithMany()
+                        .HasForeignKey("ProductionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GoToMo.Domain.Movies.StreamingService", null)
+                        .WithMany()
+                        .HasForeignKey("StreamingServicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("GoToMo.Domain.Movies.MovieCollection", b =>
                 {
                     b.Navigation("Productions");
@@ -357,8 +374,6 @@ namespace GoToMo.Data.Migrations
             modelBuilder.Entity("GoToMo.Domain.Movies.Production", b =>
                 {
                     b.Navigation("Ratings");
-
-                    b.Navigation("StreamingServices");
                 });
 #pragma warning restore 612, 618
         }

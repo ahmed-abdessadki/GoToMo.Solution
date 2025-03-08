@@ -10,10 +10,10 @@ namespace GoToMo.Domain.Movies
 		public User? User { get; set; }
 
 		
-		public Rating(string source, double ratingValue)
-		{
-			Source = source;
+		public Rating(double ratingValue, string source)
+		{			
 			RatingValue = ratingValue;
+			Source = source;
 		}
 
 		public Rating(double ratingValue, User user)

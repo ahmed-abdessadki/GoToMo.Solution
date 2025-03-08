@@ -72,9 +72,9 @@ namespace GoToMo.Data.EF.Seeder
 					ReleaseYear = 1994,
 					Ratings = new List<Rating>
 					{
-						new Rating("IMDB", 9.3),
-						new Rating("Rotten Tomatoes", 91),
-						new Rating("Metacritic", 80),
+						new Rating(9.3, "IMDB"),
+						new Rating(91, "Rotten Tomatoes"),
+						new Rating(80, "Metacritic"),
 						new Rating(9.5, ahmed),
 						new Rating(9.0, johan),
 						new Rating(8.5, niklas)
@@ -99,9 +99,9 @@ namespace GoToMo.Data.EF.Seeder
 					ReleaseYear = 1972,
 					Ratings = new List<Rating>
 					{
-						new Rating("IMDB", 9.2),
-						new Rating("Rotten Tomatoes", 98),
-						new Rating("Metacritic", 100)
+						new Rating(9.2, "IMDB"),
+						new Rating(98, "Rotten Tomatoes"),
+						new Rating(100, "Metacritic")
 					},
 					PrimaryGenre = Genre.Drama,
 					SecondaryGenre = Genre.Crime,
@@ -123,9 +123,9 @@ namespace GoToMo.Data.EF.Seeder
 					ReleaseYear = 2008,
 					Ratings = new List<Rating>
 					{
-						new Rating("IMDB", 9.0),
-						new Rating("Rotten Tomatoes", 94),
-						new Rating("Metacritic", 84)
+						new Rating(9.0, "IMDB"),
+						new Rating(94, "Rotten Tomatoes"),
+						new Rating(84, "Metacritic")
 					},
 					PrimaryGenre = Genre.Action,
 					SecondaryGenre = Genre.Drama,
@@ -142,9 +142,9 @@ namespace GoToMo.Data.EF.Seeder
 					ReleaseYear = 1974,
 					Ratings = new List<Rating>
 					{
-						new Rating("IMDB", 9.0),
-						new Rating("Rotten Tomatoes", 97),
-						new Rating("Metacritic", 90)
+						new Rating(9.0, "IMDB"),
+						new Rating(97, "Rotten Tomatoes"),
+						new Rating(90, "Metacritic")
 					},
 					PrimaryGenre = Genre.Action,
 					SecondaryGenre = Genre.Drama,
@@ -161,9 +161,9 @@ namespace GoToMo.Data.EF.Seeder
 					ReleaseYear = 2003,
 					Ratings = new List<Rating>
 					{
-						new Rating("IMDB", 8.9),
-						new Rating("Rotten Tomatoes", 93),
-						new Rating("Metacritic", 94)
+						new Rating(8.9, "IMDB"),
+						new Rating(93, "Rotten Tomatoes"),
+						new Rating(94, "Metacritic")
 					},
 					PrimaryGenre = Genre.Action,
 					SecondaryGenre = Genre.Drama,
@@ -180,9 +180,9 @@ namespace GoToMo.Data.EF.Seeder
 					ReleaseYear = 2003,
 					Ratings = new List<Rating>
 					{
-						new Rating("IMDB", 8.9),
-						new Rating("Rotten Tomatoes", 92),
-						new Rating("Metacritic", 94)
+						new Rating(8.9, "IMDB"),
+						new Rating(92, "Rotten Tomatoes"),
+						new Rating(94, "Metacritic")
 					},
 					PrimaryGenre = Genre.Crime,
 					SecondaryGenre = Genre.Drama,
@@ -199,9 +199,9 @@ namespace GoToMo.Data.EF.Seeder
 					ReleaseYear = 1993,
 					Ratings = new List<Rating>
 					{
-						new Rating("IMDB", 8.9),
-						new Rating("Rotten Tomatoes", 97),
-						new Rating("Metacritic", 93)
+						new Rating(8.9, "IMDB"),
+						new Rating(97, "Rotten Tomatoes"),
+						new Rating(93, "Metacritic")
 					},
 					PrimaryGenre = Genre.Biography,
 					SecondaryGenre = Genre.Drama,
