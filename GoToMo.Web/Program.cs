@@ -3,6 +3,7 @@ using GoToMo.Web.Services.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddBlazorBootstrap();
 // Add services to the container.
 builder.Services.AddRazorComponents()
 	.AddInteractiveServerComponents();
@@ -15,7 +16,7 @@ builder.Services.AddHttpClient("MyHttpClient", client =>
 });
 
 builder.Services.AddScoped<ProductionsService>();
-builder.Services.AddBlazorBootstrap();
+
 
 var app = builder.Build();
 
