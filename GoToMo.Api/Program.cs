@@ -71,6 +71,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCors(options =>
+			options.WithOrigins("https://localhost:7048", "http://localhost:7048", "127.0.0.1", "10.0.2.2")
+					.AllowAnyHeader()
+					.AllowAnyMethod()
+					.AllowCredentials()
+			 );
+
 using (var scope = app.Services.CreateScope())
 {
 	GoToMo.Data.EF.GoToMoContext dbContext = null;

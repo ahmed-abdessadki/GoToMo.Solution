@@ -1,0 +1,22 @@
+﻿@page "/productions"
+
+<h3>Productions</h3>
+
+<p>
+    <Button Color="ButtonColor.Primary" Type="ButtonType.Link" To="addproduction"> Add Production </Button>
+</p>
+
+<Grid TItem="Production" class="table table-hover table-bordered table-striped" DataProvider="ProductionsDataProvider" AllowFiltering="true" Responsive="true" @ref="grid">
+    <GridColumn TItem="Production" HeaderText="Title" PropertyName="Title" StringComparison="StringComparison.Ordinal">
+        @context.Title
+    </GridColumn>
+    @* <GridColumn TItem="Production" HeaderText="Type" PropertyName="ProductionType">
+        @context.ProductionType.ToString()
+    </GridColumn>
+    <GridColumn TItem="Production" HeaderText="Length" PropertyName="LengthInMinutes">
+        @context.LengthInMinutes
+    </GridColumn>
+    <GridColumn TItem="Production" HeaderText="Release year" PropertyName="ReleaseYear" Filterable="false">
+        @context.ReleaseYear        
+    </GridColumn> *@
+</Grid>
